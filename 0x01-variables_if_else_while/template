@@ -9,8 +9,6 @@ include <stdio.h>
  */
 int main(void)
 {
-	char a_z;
-
-	g
+	
 	return (0);
 }
