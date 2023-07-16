@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  *
- * Desc: Prints alphabets in lowercase letters
+ * Desc: Prints 001 to 999
  *
  * Return: Always 0 (Success)
  */
@@ -11,18 +11,19 @@ int main(void)
 {
 	int i, j, k;
 
-	for (i = 0; i < 58; i++)
+	for (i = 0; i <= '9'; i++)
 	{
-		for (j = 49; j < 58; j++)
+		for (j = 0; j <= '9'; j++)
 		{
-			for (k = 50; k < 58; k++)
+			for (k = 0; k <= '9'; k++)
 			{
-				if (k > j && j > i)
+				if ((i < j) & (j < k) & (k <= '9'))
 				{
 					putchar(i);
 					putchar(j);
 					putchar(k);
-					if (i != 55 || j != 56)
+
+					if ((i + j + k) < 168)
 					{
 						putchar(',');
 						putchar(' ');
