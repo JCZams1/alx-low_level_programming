@@ -3,20 +3,16 @@
 /**
  * main - Entry point
  *
+ * Desc: Print datatype sizes
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int charSize = sizeof(char);
-	int intSize = sizeof(int);
-	int longSize = sizeof(long int);
-	int longlongSize = sizeof(long long int);
-	int floatSize = sizeof(float);
-
-	printf("Size of char: %d byte(s)\n", charSize);
-	printf("Size of int: %d byte(s)\n", intSize);
-	printf("Size of long int: %d byte(s)\n", longSize);
-	printf("Size of long long int: %d byte(s)\n", longlongSize);
-	printf("Size of float: %d byte(s)\n", floatSize);
+	printf("Size of a char: %lu byte(s)\n", sizeof(char));
+	printf("Size of an int: %lu byte(s)\n", sizeof(int));
+	printf("Size of a long int: %lu byte(s)\n", sizeof(long int));
+	printf("Size of a long long int: %lu byte(s)\n", sizeof(long long int));
+	printf("Size of a float: %lu byte(s)\n", sizeof(float));
 	return (0);
 }
