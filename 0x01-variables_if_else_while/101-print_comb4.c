@@ -13,21 +13,20 @@ int main(void)
 
 	for (i = 0; i <= '9'; i++)
 	{
-		for (j = 0; j <= '9'; j++)
+		for (j = i + 1; j <= '9'; j++)
 		{
-			for (k = 0; k <= '9'; k++)
+			for (k = j + 1; k <= '9'; k++)
 			{
-				if ((i < j) & (j < k) & (k <= '9'))
+				if ((j != i) != k)
 				{
 					putchar(i);
 					putchar(j);
 					putchar(k);
 
-					if ((i + j + k) < 168)
-					{
+					if (i == '7' && j == '8')
+						continue;
 						putchar(',');
 						putchar(' ');
-					}
 				}
 			}
 		}
