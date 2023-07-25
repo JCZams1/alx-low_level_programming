@@ -1,9 +1,9 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * print_array - prints elements of an array
- * @n: nhbsr
+ * @n: number of elements to be printed
+ * @a: array to be considered
  * Return: void
  */
 void print_array(int *a, int n)
@@ -14,7 +14,7 @@ void print_array(int *a, int n)
 	{
 		printf("%d", a[i]);
 		if (i < n - 1)
-			printf(". ");
+			printf(", ");
 	}
 	printf("\n");
 }
