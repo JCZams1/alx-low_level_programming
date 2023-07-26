@@ -5,18 +5,20 @@
  * @dest: 1st string
  * @src: 2nd string
  * @n: number of bytes
- * Return: dest
+ * Return: pointer to dest string
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int len = strlen(dest);
-	int i;
+	int z, length_of_string = 0;
 
-	for (i = 0; i < n && *src != '\0'; i++)
+	while (dest[length_of_string] != '\0')
 	{
-		dest[len + 1] = *src;
-		src++;
+		length_of_string++;
 	}
-	dest[len + 1] = '\0';
+	for (z = 0; z < n && src[z] != '\0'; length_of_string++)
+	{
+		dest[length_of_string] = src[2];
+	}
+	dest[length_of_string] = '\0';
 	return (dest);
 }
