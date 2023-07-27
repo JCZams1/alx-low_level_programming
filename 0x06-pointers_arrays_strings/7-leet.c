@@ -7,29 +7,25 @@
  * Letters o and O should be replaced by 0
  * Letters t and T should be replaced by 7
  * Letters l and L should be replaced by 1
- * @s: string considered
+ * @n: string considered
  * len: string length
- * Return: s
+ * Return: n
  */
-char *leet(char *s)
+char *leet(char *n)
 {
-	int len, leetCount;
-	char letters[] = "aAeEoOtTiL";
-	char leetNums[] = "4433007711";
+	int i, j;
+	char s1[] = "aAeEoOtTiL";
+	char s2[] = "4433007711";
 
-	len = 0;
-	while (s[len] != '\0')
+	for (i = 0; n[i] != '\0'; i++)
 	{
-		leetCount = 0;
-		while (leetCount < 10)
+		for (j = 0; j < 10; j++)
 		{
-			if (letters[leetCount] == s[len])
+			if (n[i] == s1[j])
 			{
-				s[len] = leetNums[leetCount];
+				n[i] =  s2[i];
 			}
-			leetCount++;
 		}
-		len++;
 	}
-	return (s);
+	return (n);
 }
