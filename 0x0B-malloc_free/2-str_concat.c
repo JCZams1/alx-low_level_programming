@@ -8,8 +8,8 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len1;
-	int len2;
+	int len1 = 0;
+	int len2 = 0;
 	int i;
 	char *newStr;
 
@@ -24,9 +24,11 @@ char *str_concat(char *s1, char *s2)
 		len2++;
 
 	newStr = malloc(sizeof(char) * (len1 + len2) + 1);
+	if (newStr == NULL)
+		return (NULL);
 	for (i = 0; s1[i] != '\0'; i++)
 		newStr[i] = s1[i];
 	for (i = 0; s2[i] != '\0'; i++)
-		newStr[i] = s2[i];
+		newStr[len1 + i] = s2[i];
 	return (newStr);
 }
