@@ -1,49 +1,72 @@
 #include "dog.h"
 
 /**
- * new_dog -  function that creates a new dog.
- * @name: Dog's name
- * @age: Dog's age
- * @owner: Dog's owner
- * Return: returns a pointer to newly created dog structure
+ * _strlen - find string length
+ * @s: string
+ * Return: string length
+ */
+
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+/**
+ * _strcpy - copies string
+ * @dest: destination string
+ * @src: source string
+ * Return: copied string
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int len, i;
+
+	len = _strlen(src);
+	for (i = 0; i < len; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
+}
+
+/**
+ * new_dog - creates new dog
+ * @name: dog name
+ * @age: dog age
+ * @owner: dog owner name
+ * Return: new dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
-	char *cpyname, *cpyowner;
-	int len_name = 0;
-	int len_owner = 0;
-	int i;
+	dog_t *ndog;
+	int len1, len2;
 
-	if (name == NULL || owner == NULL)
-		return (NULL);
-	while (name[len_name])
-		len_name++;
-	while (owner[len_owner])
-		len_owner++;
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (NULL);
-	cpyname = malloc(len_name + 1);
-	if (cpyname == NULL)
-		return (NULL);
+	len1 = _strlen(name);
+	len2 = _strlen(owner);
 
-	for (i = 0; name[i]; i++)
+	ndog = malloc(sizeof(dog_t));
+	if (ndog == NULL)
+		return (NULL);
+	ndog->name = malloc(sizeof(char) * (len1 + 1));
+	if (ndog->name == NULL)
 	{
-		cpyname[i] = name[i];
-	}
-	cpyname[i] = '\0';
-	cpyowner = malloc(len_owner + 1);
-	if (cpyowner == NULL)
+		free(ndog);
 		return (NULL);
-
-	for (i = 0; owner[i]; i++)
-	{
-		cpyowner[i] = owner[i];
 	}
-	cpyowner[i] = '\0';
-	new_dog->name = cpyname;
-	new_dog->age = age;
-	new_dog->owner = cpyowner;
-	return (new_dog);
+	ndog->owner = malloc(sizeof(char) * (len2 + 1));
+	if (ndog->owner == NULL)
+	{
+		free(ndog->name);
+		free(ndog);
+		return (NULL);
+	}
+
+	_strcpy(ndog->name, name);
+	_strcpy(ndog->owner, owner);
+	ndog->age = age;
+	return (ndog);
 }
